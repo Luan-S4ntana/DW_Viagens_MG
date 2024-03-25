@@ -13,55 +13,9 @@ CREATE TABLE DimCalendarioDias (
     dataFormatada DATE NOT NULL
 );
 
-CREATE TABLE DimItemDeDespesa (
-    idItem INT NOT NULL,
-    cdItem INT NOT NULL,
-    nome VARCHAR(200) NOT NULL
-);
-
-CREATE TABLE DimPrograma (
-    idPrograma INT NOT NULL,
-    anoExercicio INT NOT NULL,
-    cdPrograma INT NOT NULL,
-    nome VARCHAR(200) NOT NULL
-);
-
-CREATE TABLE DimAcaoOrcamentaria (
-    idAcao INT NOT NULL,
-    anoExercicio INT NOT NULL,
-    cdAcao INT NOT NULL,
-    nome VARCHAR(200) NOT NULL
-);
-
 CREATE TABLE DimFavorecidoSCDP (
     idFavorecido INT NOT NULL,
     idFuncao INT NOT NULL,
-    nome VARCHAR(200) NOT NULL
-);
-
-CREATE TABLE DimDocumentoViagem (
-    idDocumento INT NOT NULL,
-    nrDocumento VARCHAR(9) NOT NULL,
-    dtViagemInicio DATE NOT NULL,
-    dtViagemFim DATE NOT NULL,
-    motivo VARCHAR(1000) NOT NULL
-);
-
-CREATE TABLE DimEmpenhoDespesaDiariasSCDP (
-    idEmpenho INT NOT NULL,
-    anoExercicio INT NOT NULL,
-    nrEmpenho INT NOT NULL,
-    dtEmpenho DATE NOT NULL,
-    unidadeExecutora VARCHAR(100) NOT NULL,
-    tipoEmpenho VARCHAR(7) NOT NULL CHECK (tipoEmpenho IN ('EMPENHO', 'GLOBAL')),
-    vrEmpenho NUMERIC(10, 2) NOT NULL,
-    cdUniProgGasto INT NOT NULL,
-    uniProgGasto VARCHAR(200)
-);
-
-CREATE TABLE DimFonteDeRecurso (
-    idFonte INT NOT NULL,
-    cdFonte INT NOT NULL,
     nome VARCHAR(200) NOT NULL
 );
 
@@ -102,22 +56,6 @@ CREATE TABLE FatoDiariasSCDP (
     vrPassagem NUMERIC(10, 2) NOT NULL
 );
 
-CREATE TABLE FatoDiariasSCDPLiquidacaoEPagamento (
-    idDocumentoViagem INT NOT NULL,
-    idEmpenho INT NOT NULL,
-    idPrograma INT NOT NULL,
-    idFuncao INT NOT NULL,
-    idFonte INT NOT NULL,
-    idItem INT NOT NULL,
-    idAcao INT NOT NULL,
-    flPassagem INT NOT NULL,
-    nrLiquidacao INT NOT NULL,
-    nrPagamento INT NOT NULL,
-    dtLiquidacao DATE NOT NULL,
-    dtPagamento DATE NOT NULL,
-    vrDevolvido NUMERIC(10, 2) NOT NULL,
-    vrLiqPag NUMERIC(10, 2) NOT NULL
-);
 
 CREATE TABLE DimCargoSCDP (
     idCargoSCDP INT NOT NULL,
